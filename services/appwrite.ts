@@ -1,41 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { Client, Account, ID, Models } from 'react-native-appwrite';
-import React, { useState } from 'react';
+import {Client,Databases,ID,Query} from "react-native-appwrite";
+const DATABASE_ID=process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID;
+const COLLECTION_ID = process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_ID;
 
-let client: Client;
-let account: Account;
+const client = new Client()
+                .setEndpoint()
+                .setProject();
 
-client = new Client();
-client
-  .setEndpoint('https://<REGION>.cloud.appwrite.io/v1')
-  .setProject('66e943139f030e2feaf8')   // Your Project ID
-  .setPlatform('com.example.my-app');   // Your package name / bundle identifier
+const databse = new Databases(client)
+export const updateSearchCount = async (query:string,movie:Movie) => { ... }               
 
-account = new Account(client);
-export default function App() {
-  const [loggedInUser, setLoggedInUser] = useState<Models.User<Models.Preferences> | null>(null);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+// export const getTrendingMovies = async() : Promise<TrendingMovie[] | undefined>{
+//   try{
 
-  async function login(email: string, password: string) {
-    await account.createEmailPasswordSession(email, password);
-    setLoggedInUser(await account.get());
-  }
-
-  async function register(email: string, password: string, name: string) {
-    await account.create(ID.unique(), email, password, name);
-    await login(email, password);
-    setLoggedInUser(await account.get());
-  }
-  return (
-    // ... Implement your UI here
-  );
-}
-
-const styles = StyleSheet.create({
-    // ... define some styles
-});
-
-
+//   }
+//   catch(error){
+//     console.log('Error occured');
+//   }
+// }

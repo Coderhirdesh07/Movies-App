@@ -43,6 +43,10 @@ export default {
     extra: {
       tmdbApiKey: process.env.EXPO_TMDB_API_KEY,
       appwriteprojectId:process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
+      appwriteendpoint:process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
+      appwritedatabaseId:process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
+      appwriteprojectName:process.env.EXPO_PUBLIC_APPWRITE_PROJECT_NAME
     },
   }
 };
+

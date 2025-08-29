@@ -13,7 +13,7 @@ const MoviesDetails = () => {
       <View> 
         <Image className = 'w-full h-[550px]' resizeMode="stretch" source={{uri:`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}}/>
         <View>
-          {/* TODO Need to desgin some Things */}
+          
           
         </View>
       </View>
